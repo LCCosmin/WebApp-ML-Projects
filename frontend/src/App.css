@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li button {
+  display: block;
+  color: white;
+  text-align: center;
+  background-color: #333;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li button:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+body{
+  background-color: rgb(97, 95, 95);
+}
+
+/* HORIZONTAL SCROLL */
+.scroll-container{
+  overflow: auto;
+  white-space: nowrap;
+  padding: 5px 70px 5px 20px;
+  background: transparent;
+  height: 25%;
+  border-radius:15px;
+}
+
+.gridscroll{
+  display:inline-block;
+}
+
+.gridscroll img {
+  margin-right:22px;
+}
