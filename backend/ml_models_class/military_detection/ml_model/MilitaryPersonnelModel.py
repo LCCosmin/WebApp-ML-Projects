@@ -14,7 +14,7 @@ class MilitaryPersonnelModel:
     _checkpoint_path: str = field(init=False)
 
     def __post_init__(self) -> None:
-        self._checkpoint_path = "./military_detection/brain/cp.ckpt"
+        self._checkpoint_path = "./ml_models_class/military_detection/brain/cp.ckpt"
 
     def normalize(self, img):
         img = cv2.resize(img, (self._width_crop, self._height_crop), interpolation = cv2.INTER_AREA)

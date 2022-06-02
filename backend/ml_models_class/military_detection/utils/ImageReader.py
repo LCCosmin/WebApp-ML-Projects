@@ -9,6 +9,4 @@ class ImageReader:
         self._image_path = path
 
     def read_by_image(self):
-        image_capture = cv2.imread(self._image_path)
-        
-        return image_capture
+        return self._image_path
