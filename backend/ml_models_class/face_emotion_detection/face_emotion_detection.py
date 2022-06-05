@@ -16,7 +16,7 @@ class FaceEmotionRecognition:
 
         gray = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
             
-        faces = self._face_cascade.detectMultiScale(gray, 1.1, 3)
+        faces = self._face_cascade.detectMultiScale(gray, 1.1, 7)
         for (x, y, w, h) in faces:
             try:
                 cv2.rectangle(copy_img, (x-20, y-20), (x+w+20, y+h+20), (255, 0, 0), 3)

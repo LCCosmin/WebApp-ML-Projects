@@ -11,24 +11,22 @@ const App = () =>{
   };
 
   async function uploadSelfie(){
-    const fd = new FormData();
-    fd.append('image', file)
+      const fd = new FormData();
+      fd.append('image', file)
 
-    let result = await fetch("http://localhost:8000/api/obtainFaceEmotionPrediction", {
-      method: "PUT",
-      body: fd,
-      mode: "cors",
+      let result = await fetch("http://localhost:8000/api/obtainFaceEmotionPrediction", {
+        method: "PUT",
+        body: fd,
+        mode: "cors",
 
-    });
-    result = await result.json();
+      });
+      result = await result.json();
 
-    let timestamp = new Date().getTime();
-
-    if (result.file){
-      document.getElementById("img").setAttribute("src", "");
-      document.getElementById("img").setAttribute("src", require("../../pictures/faceEmotion/" + String(result.file)+ "?t=" + timestamp)) ;
-    }
-
+      if (result.file){
+        document.getElementById("img").setAttribute("src", "");
+        document.getElementById("img").setAttribute("src", require("../../pictures/faceEmotion/" + String(result.file)));
+        document.getElementById("img").setAttribute("srcSet", require("../../pictures/faceEmotion/" + String(result.file)));
+      }
   };
 
   async function uploadMilitary(){
@@ -45,9 +43,12 @@ const App = () =>{
 
     result = await result.json();
 
-    let timestamp = new Date().getTime();
-
-    document.getElementById("D").innerHTML += "<img src='../../pictures/militaryDetection/military_1.png?t=" + timestamp +"' style='height: 350px; width: 350px;'/>";
+    if (result.fire){
+      //document.getElementById("D").innerHTML += "<img src='../../pictures/militaryDetection/military_1.png' id='1' style='height: 350px; width: 350px;'/>";
+      // document.getElementById("D").remove();
+      // document.getElementById()
+      document.getElementById("1").setAttribute("src", require("../../pictures/militaryDetection/" + String(result.file)));
+    }
   };
 
 
@@ -99,7 +100,7 @@ const App = () =>{
               />
 
               <br/><br/><br/>
-              <img src="" id="img" style={{height: '350px', width: '350px'}} alt=""/>
+              <img src="" srcSet="" id="img" style={{height: '350px', width: '350px'}} alt=""/>
           </article>
         );
     }
